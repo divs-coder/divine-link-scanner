@@ -1,0 +1,3477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Divine Link Scanner | Security Intelligence
+    </title>
+
+    <style>
+
+        :root {
+
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --surface-soft: #f8fafc;
+
+            --border: #e5e7eb;
+
+            --text: #0f172a;
+            --muted: #64748b;
+
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+
+            --success: #15803d;
+            --success-bg: #dcfce7;
+
+            --warning: #b45309;
+            --warning-bg: #fef3c7;
+
+            --danger: #b91c1c;
+            --danger-bg: #fee2e2;
+
+            --header: #0b1220;
+
+            --shadow:
+                0 12px 40px
+                rgba(15, 23, 42, 0.07);
+        }
+
+
+        * {
+            box-sizing: border-box;
+
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                var(--bg);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.5;
+        }
+
+
+        button,
+        input {
+            font: inherit;
+        }
+
+
+        header {
+
+            background:
+                var(--header);
+
+            color:
+                white;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+        }
+
+
+        .nav {
+
+            width:
+                92%;
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+            min-height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                25px;
+        }
+
+
+        .brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+        }
+
+
+        .brand-icon {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            border-radius:
+                10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #3b82f6
+                );
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            font-size:
+                20px;
+
+            box-shadow:
+                0 6px 18px
+                rgba(37,99,235,0.35);
+        }
+
+
+        .brand-text strong {
+
+            display:
+                block;
+
+            font-size:
+                17px;
+        }
+
+
+        .brand-text span {
+
+            display:
+                block;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                12px;
+        }
+
+
+        .online-status {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            color:
+                #bbf7d0;
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+        }
+
+
+        .online-dot {
+
+            width:
+                8px;
+
+            height:
+                8px;
+
+            border-radius:
+                50%;
+
+            background:
+                #22c55e;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(34,197,94,0.12);
+        }
+
+
+        main {
+
+            width:
+                92%;
+
+            max-width:
+                1200px;
+
+            margin:
+                0 auto;
+
+            padding:
+                48px 0 20px;
+        }
+
+
+        .hero {
+
+            max-width:
+                760px;
+
+            margin:
+                0 auto 42px;
+
+            text-align:
+                center;
+        }
+
+
+        .eyebrow {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                7px 12px;
+
+            background:
+                #eff6ff;
+
+            color:
+                #1d4ed8;
+
+            border:
+                1px solid #dbeafe;
+
+            border-radius:
+                999px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                16px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(34px, 5vw, 52px);
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -1.5px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .hero h1 span {
+            color:
+                var(--primary);
+        }
+
+
+        .hero p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                16px;
+
+            max-width:
+                650px;
+
+            margin:
+                auto;
+        }
+
+
+        .grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                24px;
+        }
+
+
+        .card {
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                var(--shadow);
+
+            overflow:
+                hidden;
+        }
+
+
+        .card-header {
+
+            padding:
+                24px 26px 18px;
+
+            border-bottom:
+                1px solid #eef2f7;
+        }
+
+
+        .card-title {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+        }
+
+
+        .card-icon {
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border-radius:
+                11px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            background:
+                #eff6ff;
+
+            color:
+                var(--primary);
+
+            font-size:
+                20px;
+        }
+
+
+        .card-title h2 {
+            font-size:
+                19px;
+        }
+
+
+        .card-title p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            margin-top:
+                2px;
+        }
+
+
+        .card-body {
+            padding:
+                26px;
+        }
+
+
+        .form-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                18px;
+        }
+
+
+        .field {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                7px;
+        }
+
+
+        .field.full {
+            grid-column:
+                1 / -1;
+        }
+
+
+        .field label {
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            color:
+                #334155;
+        }
+
+
+        input[type="number"],
+        input[type="url"] {
+
+            width:
+                100%;
+
+            padding:
+                13px 14px;
+
+            border:
+                1px solid #d9e0ea;
+
+            border-radius:
+                10px;
+
+            background:
+                #ffffff;
+
+            color:
+                var(--text);
+
+            outline:
+                none;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+
+        input:focus {
+
+            border-color:
+                #60a5fa;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(37,99,235,0.08);
+        }
+
+
+        .check-card {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                11px;
+
+            min-height:
+                48px;
+
+            padding:
+                12px 13px;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius:
+                10px;
+
+            background:
+                #fbfdff;
+        }
+
+
+        .check-card input {
+
+            width:
+                17px;
+
+            height:
+                17px;
+
+            accent-color:
+                var(--primary);
+        }
+
+
+        .check-card label {
+
+            cursor:
+                pointer;
+
+            font-weight:
+                600;
+
+            font-size:
+                13px;
+        }
+
+
+        .main-btn {
+
+            width:
+                100%;
+
+            margin-top:
+                20px;
+
+            border:
+                0;
+
+            border-radius:
+                10px;
+
+            padding:
+                14px;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            font-size:
+                15px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.2s;
+        }
+
+
+        .main-btn:hover {
+            background:
+                var(--primary-dark);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .main-btn:disabled {
+
+            background:
+                #94a3b8;
+
+            cursor:
+                not-allowed;
+
+            transform:
+                none;
+        }
+
+
+        .url-input-row {
+
+            display:
+                flex;
+
+            gap:
+                12px;
+        }
+
+
+        .url-input-row input {
+            flex:
+                1;
+        }
+
+
+        .scan-btn {
+
+            border:
+                0;
+
+            border-radius:
+                10px;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            font-weight:
+                700;
+
+            padding:
+                0 24px;
+
+            min-width:
+                145px;
+
+            cursor:
+                pointer;
+        }
+
+
+        .scan-btn:hover {
+            background:
+                var(--primary-dark);
+        }
+
+
+        .scan-btn:disabled {
+
+            background:
+                #94a3b8;
+
+            cursor:
+                not-allowed;
+        }
+
+
+        .helper-text {
+
+            font-size:
+                12px;
+
+            color:
+                var(--muted);
+
+            margin-top:
+                9px;
+        }
+
+
+        .message {
+
+            display:
+                none;
+
+            margin-top:
+                17px;
+
+            padding:
+                13px 15px;
+
+            border-radius:
+                10px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+        }
+
+
+        .error {
+
+            background:
+                var(--danger-bg);
+
+            color:
+                var(--danger);
+
+            border:
+                1px solid #fecaca;
+        }
+
+
+        .info {
+
+            background:
+                #eff6ff;
+
+            color:
+                #1d4ed8;
+
+            border:
+                1px solid #bfdbfe;
+        }
+
+
+        .result {
+
+            display:
+                none;
+
+            margin-top:
+                24px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                15px;
+
+            background:
+                var(--surface-soft);
+
+            overflow:
+                hidden;
+        }
+
+
+        .result.show {
+            display:
+                block;
+        }
+
+
+        .result-top {
+
+            padding:
+                22px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+            border-bottom:
+                1px solid #e7ebf0;
+        }
+
+
+        .result-label {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
+        }
+
+
+        .score {
+
+            font-size:
+                36px;
+
+            line-height:
+                1;
+
+            font-weight:
+                800;
+
+            margin-top:
+                5px;
+        }
+
+
+        .status-badge {
+
+            display:
+                inline-flex;
+
+            padding:
+                8px 13px;
+
+            border-radius:
+                999px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+        }
+
+
+        .low {
+
+            background:
+                var(--success-bg);
+
+            color:
+                var(--success);
+        }
+
+
+        .medium {
+
+            background:
+                var(--warning-bg);
+
+            color:
+                var(--warning);
+        }
+
+
+        .high {
+
+            background:
+                var(--danger-bg);
+
+            color:
+                var(--danger);
+        }
+
+
+        .url-result-body {
+            padding:
+                22px;
+        }
+
+
+        .url-overview {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .overview-item {
+
+            background:
+                white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius:
+                11px;
+
+            padding:
+                14px;
+        }
+
+
+        .overview-item small {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .overview-item strong {
+
+            font-size:
+                14px;
+
+            word-break:
+                break-word;
+        }
+
+
+        .stats {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                10px;
+
+            margin:
+                18px 0;
+        }
+
+
+        .stat {
+
+            background:
+                white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius:
+                11px;
+
+            padding:
+                14px 10px;
+
+            text-align:
+                center;
+        }
+
+
+        .stat span {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .stat strong {
+            font-size:
+                22px;
+        }
+
+
+        .metadata-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                10px;
+
+            margin-top:
+                12px;
+        }
+
+
+        .metadata-item {
+
+            background:
+                white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius:
+                10px;
+
+            padding:
+                12px;
+        }
+
+
+        .metadata-item span {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                4px;
+        }
+
+
+        .metadata-item strong {
+
+            font-size:
+                13px;
+
+            word-break:
+                break-word;
+        }
+
+
+        .section-title {
+
+            font-size:
+                14px;
+
+            margin-top:
+                22px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .categories {
+
+            display:
+                grid;
+
+            gap:
+                8px;
+        }
+
+
+        .category {
+
+            background:
+                white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius:
+                9px;
+
+            padding:
+                10px 12px;
+
+            font-size:
+                12px;
+
+            color:
+                #475569;
+        }
+
+
+        .engines {
+
+            display:
+                grid;
+
+            gap:
+                8px;
+        }
+
+
+        .engine {
+
+            background:
+                white;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius:
+                10px;
+
+            padding:
+                12px;
+        }
+
+
+        .engine-header {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        .engine-name {
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+        }
+
+
+        .engine-category {
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            padding:
+                4px 8px;
+
+            border-radius:
+                999px;
+
+            background:
+                #f1f5f9;
+        }
+
+
+        .engine-result {
+
+            font-size:
+                12px;
+
+            color:
+                var(--muted);
+
+            word-break:
+                break-word;
+        }
+
+
+        .engine.malicious {
+
+            border-left:
+                4px solid #dc2626;
+        }
+
+
+        .engine.suspicious {
+
+            border-left:
+                4px solid #f59e0b;
+        }
+
+
+        .engine.harmless {
+
+            border-left:
+                4px solid #16a34a;
+        }
+
+
+        .engine.undetected {
+
+            border-left:
+                4px solid #94a3b8;
+        }
+
+
+        .engine.other {
+
+            border-left:
+                4px solid #64748b;
+        }
+
+
+        .warning {
+
+            margin-top:
+                20px;
+
+            padding:
+                13px 14px;
+
+            border-radius:
+                10px;
+
+            background:
+                #fff7ed;
+
+            border:
+                1px solid #fed7aa;
+
+            color:
+                #9a3412;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.5;
+        }
+
+
+        footer {
+
+            text-align:
+                center;
+
+            padding:
+                38px 20px 45px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+        }
+
+
+        @media (max-width: 900px) {
+
+            .grid {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav {
+                min-height:
+                    64px;
+            }
+
+            main {
+                width:
+                    94%;
+
+                padding-top:
+                    32px;
+            }
+
+            .online-status {
+                display:
+                    none;
+            }
+
+            .hero h1 {
+                font-size:
+                    34px;
+            }
+
+            .card-header,
+            .card-body,
+            .url-result-body {
+                padding:
+                    20px;
+            }
+
+            .form-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .field.full {
+                grid-column:
+                    auto;
+            }
+
+            .url-input-row {
+                flex-direction:
+                    column;
+            }
+
+            .scan-btn {
+                min-height:
+                    48px;
+            }
+
+            .url-overview {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .metadata-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .result-top {
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="nav">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🛡
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    Divine Link Scanner
+                </strong>
+
+                <span>
+                    Security Intelligence Platform
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="online-status">
+
+            <span class="online-dot"></span>
+
+            Scanner Online
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <div class="eyebrow">
+            ● REAL-TIME SECURITY ANALYSIS
+        </div>
+
+        <h1>
+            Detect risk before it
+            <br>
+            <span>becomes a problem.</span>
+        </h1>
+
+        <p>
+            Analyze URLs using live security intelligence
+            returned by the security analysis service.
+        </p>
+
+    </section>
+
+
+    <section class="grid">
+
+
+        <!-- TRANSACTION SCANNER -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div class="card-title">
+
+                    <div class="card-icon">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Transaction Risk
+                        </h2>
+
+                        <p>
+                            Analyze transaction behavior
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="form-grid">
+
+
+                    <div class="field">
+
+                        <label for="amount">
+                            Transaction Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            placeholder="750000"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="transactions">
+                            Transactions Today
+                        </label>
+
+                        <input
+                            type="number"
+                            id="transactions"
+                            placeholder="15"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="age">
+                            Account Age (Days)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="30"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Device
+                        </label>
+
+                        <div class="check-card">
+
+                            <input
+                                type="checkbox"
+                                id="newDevice"
+                            >
+
+                            <label for="newDevice">
+                                New or unrecognized
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label>
+                            Location
+                        </label>
+
+                        <div class="check-card">
+
+                            <input
+                                type="checkbox"
+                                id="location"
+                            >
+
+                            <label for="location">
+                                Unusual transaction location
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="main-btn"
+                    id="scanButton"
+                    onclick="scanTransaction()"
+                >
+                    Analyze Transaction
+                </button>
+
+
+                <div
+                    id="error"
+                    class="message error"
+                ></div>
+
+
+                <div
+                    id="result"
+                    class="result"
+                >
+
+                    <div class="result-top">
+
+                        <div>
+
+                            <div class="result-label">
+                                RISK SCORE
+                            </div>
+
+                            <div
+                                id="score"
+                                class="score"
+                            >
+                                --
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="risk"
+                            class="status-badge"
+                        >
+                            UNKNOWN
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="decision"
+                        class="decision"
+                    >
+                        Decision: UNKNOWN
+                    </div>
+
+
+                    <ul
+                        id="reasons"
+                        class="reasons"
+                    ></ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- URL SCANNER -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div class="card-title">
+
+                    <div class="card-icon">
+                        🔍
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            URL Intelligence
+                        </h2>
+
+                        <p>
+                            Inspect live security results
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-body">
+
+
+                <div class="url-input-row">
+
+                    <input
+                        type="url"
+                        id="urlInput"
+                        placeholder="https://example.com"
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        id="urlScanButton"
+                        class="scan-btn"
+                        onclick="scanURL()"
+                    >
+                        Scan URL
+                    </button>
+
+                </div>
+
+
+                <div class="helper-text">
+
+                    Enter the complete website address beginning
+                    with https:// or http://
+
+                </div>
+
+
+                <div
+                    id="urlError"
+                    class="message error"
+                ></div>
+
+
+                <div
+                    id="urlInfo"
+                    class="message info"
+                ></div>
+
+
+                <div
+                    id="urlResult"
+                    class="result"
+                >
+
+
+                    <div class="result-top">
+
+                        <div>
+
+                            <div class="result-label">
+                                VIRUSTOTAL DETECTIONS
+                            </div>
+
+                            <div
+                                id="detectionSummary"
+                                class="score"
+                            >
+                                --
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="urlStatus"
+                            class="status-badge"
+                        >
+                            UNKNOWN
+                        </div>
+
+                    </div>
+
+
+                    <div class="url-result-body">
+
+
+                        <!-- OVERVIEW -->
+
+                        <div class="url-overview">
+
+                            <div class="overview-item">
+
+                                <small>
+                                    Scanned URL
+                                </small>
+
+                                <strong
+                                    id="scannedURL"
+                                >
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="overview-item">
+
+                                <small>
+                                    Domain
+                                </small>
+
+                                <strong
+                                    id="urlDomain"
+                                >
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="overview-item">
+
+                                <small>
+                                    Website Title
+                                </small>
+
+                                <strong
+                                    id="urlTitle"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="overview-item">
+
+                                <small>
+                                    VirusTotal Reputation
+                                </small>
+
+                                <strong
+                                    id="urlReputation"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="overview-item">
+
+                                <small>
+                                    Final URL
+                                </small>
+
+                                <strong
+                                    id="finalURL"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="overview-item">
+
+                                <small>
+                                    HTTP Response
+                                </small>
+
+                                <strong
+                                    id="httpResponse"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STATS -->
+
+                        <div class="stats">
+
+
+                            <div class="stat">
+
+                                <span>
+                                    Malicious
+                                </span>
+
+                                <strong id="malicious">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <span>
+                                    Suspicious
+                                </span>
+
+                                <strong id="suspicious">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <span>
+                                    Harmless
+                                </span>
+
+                                <strong id="harmless">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <span>
+                                    Undetected
+                                </span>
+
+                                <strong id="undetected">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <span>
+                                    Timeout
+                                </span>
+
+                                <strong id="timeout">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <span>
+                                    Total
+                                </span>
+
+                                <strong id="totalEngines">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- WEBSITE INFORMATION -->
+
+                        <h3 class="section-title">
+                            Website Information
+                        </h3>
+
+
+                        <div class="metadata-grid">
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Domain Created
+                                </span>
+
+                                <strong
+                                    id="domainCreationDate"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    First Seen by VirusTotal
+                                </span>
+
+                                <strong
+                                    id="firstSubmissionDate"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Last Analysis
+                                </span>
+
+                                <strong
+                                    id="lastAnalysisDate"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Registrar
+                                </span>
+
+                                <strong
+                                    id="registrar"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    HTML Content
+                                </span>
+
+                                <strong
+                                    id="htmlDetected"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Content Length
+                                </span>
+
+                                <strong
+                                    id="contentLength"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- CATEGORIES -->
+
+                        <h3 class="section-title">
+                            Security Categories
+                        </h3>
+
+
+                        <div
+                            id="categories"
+                            class="categories"
+                        ></div>
+
+
+                        <!-- ENGINE RESULTS -->
+
+                        <h3 class="section-title">
+                            Security Engine Results
+                        </h3>
+
+
+                        <div
+                            id="engines"
+                            class="engines"
+                        ></div>
+
+
+                        <!-- ANALYSIS -->
+
+                        <h3 class="section-title">
+                            Analysis Information
+                        </h3>
+
+
+                        <div class="metadata-grid">
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Analysis Status
+                                </span>
+
+                                <strong
+                                    id="analysisStatus"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Analysis Date
+                                </span>
+
+                                <strong
+                                    id="analysisDate"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+
+                            <div class="metadata-item">
+
+                                <span>
+                                    Analysis ID
+                                </span>
+
+                                <strong
+                                    id="analysisId"
+                                >
+                                    Not returned
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="warning">
+
+                            The information above is displayed from
+                            the security-analysis response available
+                            for the URL. A missing field means that
+                            the service did not return that field.
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    Divine Link Scanner © 2026 ·
+    Security analysis platform
+
+</footer>
+
+
+<script>
+
+
+    // ========================================
+    // API
+    // ========================================
+
+    const API_BASE =
+        "http://127.0.0.1:5000";
+
+
+    // ========================================
+    // SAFE JSON
+    // ========================================
+
+    async function readJSON(response) {
+
+        const text =
+            await response.text();
+
+        try {
+
+            return JSON.parse(text);
+
+        } catch {
+
+            console.error(
+                "Invalid JSON response:",
+                text
+            );
+
+            throw new Error(
+                "The server returned an invalid response."
+            );
+        }
+    }
+
+
+    // ========================================
+    // TRANSACTION SCANNER
+    // ========================================
+
+    async function scanTransaction() {
+
+        const button =
+            document.getElementById(
+                "scanButton"
+            );
+
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        const amount =
+            Number(
+                document.getElementById(
+                    "amount"
+                ).value
+            );
+
+
+        const transactions =
+            Number(
+                document.getElementById(
+                    "transactions"
+                ).value
+            );
+
+
+        const age =
+            Number(
+                document.getElementById(
+                    "age"
+                ).value
+            );
+
+
+        const newDevice =
+            document.getElementById(
+                "newDevice"
+            ).checked;
+
+
+        const unusualLocation =
+            document.getElementById(
+                "location"
+            ).checked;
+
+
+        if (
+            !amount ||
+            amount <= 0
+        ) {
+
+            showError(
+                "Please enter a valid transaction amount."
+            );
+
+            return;
+        }
+
+
+        button.disabled =
+            true;
+
+        button.textContent =
+            "Analyzing...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_BASE}/api/fraud-check`,
+                    {
+                        method:
+                            "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                amount:
+
+                                    amount,
+
+                                transactions_today:
+
+                                    transactions,
+
+                                account_age_days:
+
+                                    age,
+
+                                is_new_device:
+
+                                    newDevice,
+
+                                unusual_location:
+
+                                    unusualLocation
+
+                            })
+                    }
+                );
+
+
+            const data =
+                await readJSON(
+                    response
+                );
+
+
+            if (
+                !response.ok ||
+                !data.success
+            ) {
+
+                throw new Error(
+                    data.error ||
+                    "Fraud detection failed."
+                );
+            }
+
+
+            displayTransactionResult(
+                data.fraud_detection
+            );
+
+
+        } catch (error) {
+
+            showError(
+                error.message
+            );
+
+        } finally {
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Analyze Transaction";
+        }
+    }
+
+
+    // ========================================
+    // TRANSACTION DISPLAY
+    // ========================================
+
+    function displayTransactionResult(data) {
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        const score =
+            document.getElementById(
+                "score"
+            );
+
+
+        const risk =
+            document.getElementById(
+                "risk"
+            );
+
+
+        const decision =
+            document.getElementById(
+                "decision"
+            );
+
+
+        const reasons =
+            document.getElementById(
+                "reasons"
+            );
+
+
+        score.textContent =
+            `${data?.risk_score ?? "--"}/100`;
+
+
+        risk.textContent =
+            data?.risk_level ||
+            "UNKNOWN";
+
+
+        risk.className =
+            "status-badge";
+
+
+        if (
+            data?.risk_level ===
+            "LOW"
+        ) {
+
+            risk.classList.add(
+                "low"
+            );
+
+        } else if (
+            data?.risk_level ===
+            "MEDIUM"
+        ) {
+
+            risk.classList.add(
+                "medium"
+            );
+
+        } else if (
+            data?.risk_level ===
+            "HIGH"
+        ) {
+
+            risk.classList.add(
+                "high"
+            );
+        }
+
+
+        decision.textContent =
+            "Decision: " +
+            (
+                data?.decision ||
+                "UNKNOWN"
+            );
+
+
+        reasons.innerHTML =
+            "";
+
+
+        const list =
+            Array.isArray(
+                data?.reasons
+            )
+                ? data.reasons
+                : [];
+
+
+        if (
+            list.length === 0
+        ) {
+
+            const li =
+                document.createElement(
+                    "li"
+                );
+
+            li.textContent =
+                "No reasons were returned.";
+
+            reasons.appendChild(
+                li
+            );
+
+        } else {
+
+            list.forEach(
+                reason => {
+
+                    const li =
+                        document.createElement(
+                            "li"
+                        );
+
+                    li.textContent =
+                        reason;
+
+                    reasons.appendChild(
+                        li
+                    );
+                }
+            );
+        }
+
+
+        result.classList.add(
+            "show"
+        );
+    }
+
+
+    // ========================================
+    // TRANSACTION ERROR
+    // ========================================
+
+    function showError(message) {
+
+        const error =
+            document.getElementById(
+                "error"
+            );
+
+        error.textContent =
+            message;
+
+        error.style.display =
+            "block";
+    }
+
+
+    // ========================================
+    // URL SCANNER
+    // ========================================
+
+    async function scanURL() {
+
+        const input =
+            document.getElementById(
+                "urlInput"
+            );
+
+
+        const button =
+            document.getElementById(
+                "urlScanButton"
+            );
+
+
+        const result =
+            document.getElementById(
+                "urlResult"
+            );
+
+
+        const error =
+            document.getElementById(
+                "urlError"
+            );
+
+
+        const info =
+            document.getElementById(
+                "urlInfo"
+            );
+
+
+        const url =
+            input.value.trim();
+
+
+        error.style.display =
+            "none";
+
+
+        info.style.display =
+            "none";
+
+
+        result.classList.remove(
+            "show"
+        );
+
+
+        if (!url) {
+
+            showURLError(
+                "Please enter a website URL."
+            );
+
+            return;
+        }
+
+
+        let parsedURL;
+
+
+        try {
+
+            parsedURL =
+                new URL(url);
+
+        } catch {
+
+            showURLError(
+                "Please enter a valid URL."
+            );
+
+            return;
+        }
+
+
+        if (
+            parsedURL.protocol !==
+                "http:" &&
+            parsedURL.protocol !==
+                "https:"
+        ) {
+
+            showURLError(
+                "Only HTTP and HTTPS URLs can be scanned."
+            );
+
+            return;
+        }
+
+
+        button.disabled =
+            true;
+
+        button.textContent =
+            "Scanning...";
+
+
+        showURLInfo(
+            "Submitting URL for live security analysis..."
+        );
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_BASE}/api/url-scan`,
+                    {
+                        method:
+                            "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                url: url
+                            })
+                    }
+                );
+
+
+            const data =
+                await readJSON(
+                    response
+                );
+
+
+            console.log(
+                "Complete scan response:",
+                data
+            );
+
+
+            if (
+                !response.ok ||
+                !data.success
+            ) {
+
+                throw new Error(
+                    data.error ||
+                    "Unable to scan URL."
+                );
+            }
+
+
+            if (
+                !data.scan
+            ) {
+
+                throw new Error(
+                    "No scan data was returned."
+                );
+            }
+
+
+            displayURLResult(
+                data.scan
+            );
+
+
+            hideURLInfo();
+
+
+        } catch (error) {
+
+            console.error(
+                error
+            );
+
+            hideURLInfo();
+
+            showURLError(
+                error.message ||
+                "Could not complete the URL scan."
+            );
+
+        } finally {
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Scan URL";
+        }
+    }
+
+
+    // ========================================
+    // DISPLAY URL RESULT
+    // ========================================
+
+    function displayURLResult(data) {
+
+        const detections =
+            data.detections ||
+            {};
+
+
+        const malicious =
+            Number(
+                detections.malicious ||
+                0
+            );
+
+
+        const suspicious =
+            Number(
+                detections.suspicious ||
+                0
+            );
+
+
+        const harmless =
+            Number(
+                detections.harmless ||
+                0
+            );
+
+
+        const undetected =
+            Number(
+                detections.undetected ||
+                0
+            );
+
+
+        const total =
+            Number(
+                detections.total_engines ||
+                0
+            );
+
+
+        // ========================================
+        // SUMMARY
+        // ========================================
+
+        document.getElementById(
+            "detectionSummary"
+        ).textContent =
+            `${malicious + suspicious}/${total}`;
+
+
+        document.getElementById(
+            "scannedURL"
+        ).textContent =
+            data.url ||
+            "-";
+
+
+        document.getElementById(
+            "urlDomain"
+        ).textContent =
+            data.domain ||
+            "-";
+
+
+        document.getElementById(
+            "urlTitle"
+        ).textContent =
+            data.title ||
+            "Not returned";
+
+
+        document.getElementById(
+            "urlReputation"
+        ).textContent =
+            data.reputation ??
+            "Not returned";
+
+
+        document.getElementById(
+            "finalURL"
+        ).textContent =
+            data.final_url ||
+            "Not returned";
+
+
+        const httpCode =
+            data.http_response_code;
+
+
+        document.getElementById(
+            "httpResponse"
+        ).textContent =
+            httpCode !== null &&
+            httpCode !== undefined
+                ? String(httpCode)
+                : "Not returned";
+
+
+        // ========================================
+        // DETECTIONS
+        // ========================================
+
+        document.getElementById(
+            "malicious"
+        ).textContent =
+            malicious;
+
+
+        document.getElementById(
+            "suspicious"
+        ).textContent =
+            suspicious;
+
+
+        document.getElementById(
+            "harmless"
+        ).textContent =
+            harmless;
+
+
+        document.getElementById(
+            "undetected"
+        ).textContent =
+            undetected;
+
+
+        document.getElementById(
+            "timeout"
+        ).textContent =
+            detections.timeout ??
+            0;
+
+
+        document.getElementById(
+            "totalEngines"
+        ).textContent =
+            total;
+
+
+        // ========================================
+        // STATUS
+        // ========================================
+
+        const status =
+            document.getElementById(
+                "urlStatus"
+            );
+
+
+        status.className =
+            "status-badge";
+
+
+        if (malicious > 0) {
+
+            status.textContent =
+                "MALICIOUS";
+
+            status.classList.add(
+                "high"
+            );
+
+        } else if (
+            suspicious > 0
+        ) {
+
+            status.textContent =
+                "SUSPICIOUS";
+
+            status.classList.add(
+                "medium"
+            );
+
+        } else {
+
+            status.textContent =
+                "NO MALICIOUS DETECTIONS";
+
+            status.classList.add(
+                "low"
+            );
+        }
+
+
+        // ========================================
+        // METADATA
+        // ========================================
+
+        document.getElementById(
+            "domainCreationDate"
+        ).textContent =
+            formatDateForDisplay(
+                data.domain_creation_date
+            );
+
+
+        document.getElementById(
+            "firstSubmissionDate"
+        ).textContent =
+            formatDateForDisplay(
+                data.first_submission_date
+            );
+
+
+        document.getElementById(
+            "lastAnalysisDate"
+        ).textContent =
+            formatDateForDisplay(
+                data.last_analysis_date
+            );
+
+
+        document.getElementById(
+            "registrar"
+        ).textContent =
+            data.registrar ||
+            "Not returned";
+
+
+        document.getElementById(
+            "htmlDetected"
+        ).textContent =
+            data.html_detected === true
+                ? "Detected"
+                : data.html_detected === false
+                    ? "No HTML metadata returned"
+                    : "Not returned";
+
+
+        document.getElementById(
+            "contentLength"
+        ).textContent =
+            data.http_response_content_length !==
+                null &&
+            data.http_response_content_length !==
+                undefined
+
+                ? formatBytes(
+                    data.http_response_content_length
+                )
+
+                : "Not returned";
+
+
+        // ========================================
+        // CATEGORIES
+        // ========================================
+
+        renderCategories(
+            data.categories || {}
+        );
+
+
+        // ========================================
+        // ENGINE RESULTS
+        // ========================================
+
+        renderEngines(
+            data.engines || []
+        );
+
+
+        // ========================================
+        // ANALYSIS DATA
+        // ========================================
+
+        document.getElementById(
+            "analysisStatus"
+        ).textContent =
+            data.analysis_status ||
+            "Not returned";
+
+
+        document.getElementById(
+            "analysisDate"
+        ).textContent =
+            formatDateForDisplay(
+                data.analysis_date
+            );
+
+
+        document.getElementById(
+            "analysisId"
+        ).textContent =
+            data.analysis_id ||
+            "Not returned";
+
+
+        // ========================================
+        // SHOW
+        // ========================================
+
+        document.getElementById(
+            "urlResult"
+        ).classList.add(
+            "show"
+        );
+
+
+        document.getElementById(
+            "urlResult"
+        ).scrollIntoView({
+            behavior:
+                "smooth",
+
+            block:
+                "nearest"
+        });
+    }
+
+
+    // ========================================
+    // CATEGORIES
+    // ========================================
+
+    function renderCategories(categories) {
+
+        const container =
+            document.getElementById(
+                "categories"
+            );
+
+
+        container.innerHTML =
+            "";
+
+
+        const entries =
+            Object.entries(
+                categories
+            );
+
+
+        if (
+            entries.length === 0
+        ) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+            div.className =
+                "category";
+
+            div.textContent =
+                "No categories were returned.";
+
+            container.appendChild(
+                div
+            );
+
+            return;
+        }
+
+
+        entries.forEach(
+            ([source, category]) => {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+                div.className =
+                    "category";
+
+
+                const strong =
+                    document.createElement(
+                        "strong"
+                    );
+
+
+                strong.textContent =
+                    `${source}: `;
+
+
+                div.appendChild(
+                    strong
+                );
+
+
+                div.appendChild(
+                    document.createTextNode(
+                        String(category)
+                    )
+                );
+
+
+                container.appendChild(
+                    div
+                );
+            }
+        );
+    }
+
+
+    // ========================================
+    // ENGINE RESULTS
+    // ========================================
+
+    function renderEngines(engines) {
+
+        const container =
+            document.getElementById(
+                "engines"
+            );
+
+
+        container.innerHTML =
+            "";
+
+
+        if (
+            !engines ||
+            engines.length === 0
+        ) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "engine other";
+
+
+            div.textContent =
+                "No individual engine results were returned.";
+
+
+            container.appendChild(
+                div
+            );
+
+
+            return;
+        }
+
+
+        engines.forEach(
+            engine => {
+
+                const wrapper =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                const category =
+                    String(
+                        engine.category ||
+                        "unknown"
+                    ).toLowerCase();
+
+
+                if (
+                    category ===
+                    "malicious"
+                ) {
+
+                    wrapper.className =
+                        "engine malicious";
+
+                } else if (
+                    category ===
+                    "suspicious"
+                ) {
+
+                    wrapper.className =
+                        "engine suspicious";
+
+                } else if (
+                    category ===
+                    "harmless"
+                ) {
+
+                    wrapper.className =
+                        "engine harmless";
+
+                } else if (
+                    category ===
+                    "undetected"
+                ) {
+
+                    wrapper.className =
+                        "engine undetected";
+
+                } else {
+
+                    wrapper.className =
+                        "engine other";
+                }
+
+
+                const header =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                header.className =
+                    "engine-header";
+
+
+                const name =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                name.className =
+                    "engine-name";
+
+
+                name.textContent =
+                    engine.engine_name ||
+                    engine.engine ||
+                    "Unknown engine";
+
+
+                const badge =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                badge.className =
+                    "engine-category";
+
+
+                badge.textContent =
+                    engine.category ||
+                    "unknown";
+
+
+                header.appendChild(
+                    name
+                );
+
+
+                header.appendChild(
+                    badge
+                );
+
+
+                const resultText =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                resultText.className =
+                    "engine-result";
+
+
+                resultText.textContent =
+                    engine.result ||
+                    "No result text returned.";
+
+
+                wrapper.appendChild(
+                    header
+                );
+
+
+                wrapper.appendChild(
+                    resultText
+                );
+
+
+                container.appendChild(
+                    wrapper
+                );
+            }
+        );
+    }
+
+
+    // ========================================
+    // DATE
+    // ========================================
+
+    function formatDateForDisplay(value) {
+
+        if (!value) {
+            return "Not returned";
+        }
+
+
+        const date =
+            new Date(value);
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return "Not returned";
+        }
+
+
+        return date.toLocaleString();
+    }
+
+
+    // ========================================
+    // BYTES
+    // ========================================
+
+    function formatBytes(value) {
+
+        const bytes =
+            Number(value);
+
+
+        if (
+            !Number.isFinite(bytes)
+        ) {
+
+            return "Not returned";
+        }
+
+
+        if (
+            bytes === 0
+        ) {
+
+            return "0 bytes";
+        }
+
+
+        const units = [
+            "bytes",
+            "KB",
+            "MB",
+            "GB"
+        ];
+
+
+        const exponent =
+            Math.floor(
+                Math.log(bytes) /
+                Math.log(1024)
+            );
+
+
+        const index =
+            Math.min(
+                exponent,
+                units.length - 1
+            );
+
+
+        const number =
+            bytes /
+            Math.pow(
+                1024,
+                index
+            );
+
+
+        return `${number.toFixed(
+            index === 0 ? 0 : 2
+        )} ${units[index]}`;
+    }
+
+
+    // ========================================
+    // URL ERROR
+    // ========================================
+
+    function showURLError(message) {
+
+        const error =
+            document.getElementById(
+                "urlError"
+            );
+
+
+        error.textContent =
+            message;
+
+
+        error.style.display =
+            "block";
+    }
+
+
+    // ========================================
+    // URL INFO
+    // ========================================
+
+    function showURLInfo(message) {
+
+        const info =
+            document.getElementById(
+                "urlInfo"
+            );
+
+
+        info.textContent =
+            message;
+
+
+        info.style.display =
+            "block";
+    }
+
+
+    function hideURLInfo() {
+
+        const info =
+            document.getElementById(
+                "urlInfo"
+            );
+
+
+        info.style.display =
+            "none";
+    }
+
+
+    // ========================================
+    // ENTER KEY
+    // ========================================
+
+    document
+        .getElementById(
+            "urlInput"
+        )
+        .addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "Enter"
+                ) {
+
+                    event.preventDefault();
+
+                    scanURL();
+                }
+
+            }
+        );
+
+</script>
+
+</body>
+</html>
