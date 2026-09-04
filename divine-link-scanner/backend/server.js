@@ -8,6 +8,10 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 const ML_SERVICE_URL =
     process.env.ML_SERVICE_URL || "http://127.0.0.1:8000";
 
@@ -716,6 +720,7 @@ app.listen(
                     : "API KEY MISSING"
             }`
         );
+        
 
         console.log(
             "========================================"
